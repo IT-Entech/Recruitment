@@ -169,7 +169,6 @@ if (!$pfix) {
                 <input type="text" maxlength="255" name="Name_Last" fieldType="7" placeholder="" required>
                 <label for="Name_Last">นามสกุล</label>
             </span>
-
             <!-- Nickname Input -->
             <span>
                 <input type="text" maxlength="255" name="Name_Nickname" fieldType="7" placeholder="">
