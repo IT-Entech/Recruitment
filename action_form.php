@@ -2,14 +2,31 @@
 session_start();
 include_once '../connectDB/connectDB.php';
 $objCon = connectDB();
+$timezone = new DateTimeZone('Asia/Bangkok'); // Setting the timezone
+$date = new DateTime('now', $timezone);
+$record_datetime = $date->format('Y-m-d H:i:s');
 $data = $_POST;
+$Name_First = $data['Name_First'];
+// สร้างชื่อไฟล์ใหม่โดยใช้ timestamp
+$file = './log_file/data_' . time() . '.json';
+
+// Encode the array into JSON format before saving
+$jsonData = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+
+if (file_put_contents($file, $jsonData)) {
+    echo 'Data successfully saved to ' . $file;
+    include 'insertData1.php'; // Insert into the database
+} else {
+    echo 'Error writing to file';
+}
+
 //print_r($data);
 $startDate = $data['StartDate'];
 $position = $data['position'];
 $present_salary = $data['present_salary'];
 $requied_salary = $data['required_salary'];
 $Name_Title = $data['Name_Title'];
-$Name_First = $data['Name_First'];
+
 $Name_Last = $data['Name_Last'];
 $Name_Nickname = $data['Name_Nickname'];
 $birth_date = $data['birth_date'];
@@ -453,13 +470,22 @@ $sql1 = "INSERT INTO hr_application_education ([id_card_no]
 ,[Other_grade]
 ,[Obegin_year]
 ,[Oend_year]
-,[system_type]) VALUES ('$idcard', '$schoolName', '$Educational_qualification', '$Apoint', '$first_startyear', '$first_gruadeyear',
-'$vocationName', '$Educational_qualification2', '$depart2', '$Apoint2', '$first_startyear2', '$first_gruadeyear2',
-'$UName', '$Educational_qualification3', '$depart3', '$Apoint3', '$first_startyear3', '$first_gruadeyear3',
-'$othernName', '$Educational_qualification4', '$depart4', '$Apoint4', '$first_startyear4', '$first_gruadeyear4', 'Online')";
-
-$objQueryeducate = sqlsrv_query($objCon, $sql1);
-if ($objQueryeducate === false) {
+,[system_type]) VALUES (
+    ?, ?, ?, ?, ?, ?,
+    ?, ?, ?, ?, ?, ?,
+    ?, ?, ?, ?, ?, ?,
+    ?, ?, ?, ?, ?, ?, 'Online'
+)";
+// Parameters array
+$params = array(
+    $idcard, $schoolName, $Educational_qualification, $Apoint, $first_startyear, $first_gruadeyear,
+    $vocationName, $Educational_qualification2, $depart2, $Apoint2, $first_startyear2, $first_gruadeyear2,
+    $UName, $Educational_qualification3, $depart3, $Apoint3, $first_startyear3, $first_gruadeyear3,
+    $othernName, $Educational_qualification4, $depart4, $Apoint4, $first_startyear4, $first_gruadeyear4
+);
+// Execute the query using the parameters
+$objQueryeducation = sqlsrv_query($objCon, $sql1, $params);
+if ($objQueryeducation === false) {
     die(print_r(sqlsrv_errors(), true));
 } 
 
@@ -481,7 +507,7 @@ if (!$stmt2) {
 
 if($objQuery){
 
-    echo '<script>alert("บันทึกเรียบร้อย");window.location="https://erp-web.en-technology.com/Encrypt.php";</script>';
+    //echo '<script>alert("บันทึกเรียบร้อย");window.location="https://erp-web.en-technology.com/Encrypt.php";</script>';
     }
 
 }

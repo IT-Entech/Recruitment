@@ -57,12 +57,15 @@ if (!$pfix) {
 
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ใบสมัครงาน บริษัท เอ็นเทคโนโลยี คอนซัลแตนท์ จำกัด</title>
     <link rel="shortcut icon" type="image/x-icon" href="./image/google-forms.png">
     <link href="css/form.css" rel="stylesheet" type="text/css">
+    <link href="./assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../assets/css/style.css" rel="stylesheet">  
     <script src="js/validation.js"></script>
 </head>
 <body class="zf-backgroundBg">
@@ -71,12 +74,12 @@ if (!$pfix) {
             <div class="zf-templateWrapper">
                 <!-- Form Header Starts -->
                 <ul class="zf-tempHeadBdr">
-                    <li class="zf-tempHeadContBdr">
-                        <h2 class="zf-frmTitle"><em>ใบสมัครงาน บริษัท เอ็นเทคโนโลยี คอนซัลแตนท์ จำกัด</em></h2>
-                        <p class="zf-frmDesc"></p>
-                        <div class="zf-clearBoth"></div>
-                    </li>
-                </ul>
+   <li class="zf-tempHeadContBdr">
+     <h2 class="zf-frmTitle"><em>ใบสมัครงาน บริษัท เอ็นเทคโนโลยี คอนซัลแตนท์ จำกัด</em></h2>
+     <p class="zf-frmDesc"></p>
+     <div class="zf-clearBoth"></div>
+   </li>
+ </ul>
                 <!-- Form Header Ends -->
 
                 <!-- Form Container Starts -->
@@ -86,10 +89,10 @@ if (!$pfix) {
                         <li class="zf-tempFrmWrapper zf-date">
                             <label for="StartDate" class="zf-labelName">วันที่เริ่มงานได้</label>
                             <div class="zf-tempContDiv">
-                                <span>
-                                    <input type="date" id="StartDate" name="StartDate" checktype="c4" required readonly onclick="this.removeAttribute('readonly')" onblur="this.setAttribute('readonly', true)" />
+                            <div class="col-sm-3">
+                                    <input type="date" id="StartDate" name="StartDate" class="form-control" checktype="c4" required readonly onclick="this.removeAttribute('readonly')" onblur="this.setAttribute('readonly', true)" />
                                     <label for="StartDate">กรอกเป็นปี ค.ศ.</label>
-                                </span>
+                                </div>
                                 <div class="zf-clearBoth"></div>
                                 <p id="Date4_error" class="zf-errorMessage" style="display:none;">Invalid value</p>
                             </div>
@@ -103,19 +106,19 @@ if (!$pfix) {
             
             <!-- Position Input -->
             <span>
-                <input type="text" name="position" id="position" style="width: 100%; border: 1px solid #e5e5e5; padding-bottom: 2%;" required>
+                <input type="text" name="position" id="position" class="form-control" required>
                 <label for="position" for="position">สมัครตำแหน่ง</label>
             </span> 
             
             <!-- Present Salary Input -->
             <span>
-                <input type="text" maxlength="255" name="present_salary" fieldtype="7" placeholder="" required>
+                <input type="text" maxlength="255" id="present_salary"  name="present_salary" fieldtype="7" placeholder="" required>
                 <label for="present_salary">เงินเดือนปัจจุบัน</label>
             </span> 
             
             <!-- Required Salary Input -->
             <span>
-                <input type="text" maxlength="255" name="required_salary" fieldtype="7" placeholder="" required>
+                <input type="text" maxlength="255"  id="required_salary" name="required_salary" fieldtype="7" placeholder="" required>
                 <label for="required_salary">เงินเดือนที่ต้องการ</label>
             </span>
 
@@ -146,7 +149,7 @@ if (!$pfix) {
 
             <!-- Name Title Dropdown -->
             <span>
-                <select name="Name_Title" class="form-select" required>
+                <select id="Name_Title" name="Name_Title" class="form-select" required>
                     <option value="">-- เลือกคำนำหน้า --</option>
                     <?php
                     // Fetching all titles into the select options
@@ -160,18 +163,18 @@ if (!$pfix) {
 
             <!-- First Name Input -->
             <span>
-                <input type="text" maxlength="255" name="Name_First" fieldType="7" placeholder="" required>
+                <input type="text" maxlength="255" id="Name_First" name="Name_First" fieldType="7" placeholder="" required>
                 <label for="Name_First">ชื่อ</label>
             </span>
 
             <!-- Last Name Input -->
             <span>
-                <input type="text" maxlength="255" name="Name_Last" fieldType="7" placeholder="" required>
+                <input type="text" maxlength="255" id="Name_Last" name="Name_Last" fieldType="7" placeholder="" required>
                 <label for="Name_Last">นามสกุล</label>
             </span>
             <!-- Nickname Input -->
             <span>
-                <input type="text" maxlength="255" name="Name_Nickname" fieldType="7" placeholder="">
+                <input type="text" maxlength="255"  id="Name_Nickname"name="Name_Nickname" fieldType="7" placeholder="">
                 <label for="Name_Nickname">ชื่อเล่น</label>
             </span>
 
@@ -196,7 +199,7 @@ if (!$pfix) {
 
             <!-- Age Input -->
             <span>
-                <input type="text" maxlength="2" name="age" fieldType="7" placeholder="" required />
+                <input type="text" maxlength="2"  id="age" name="age" fieldType="7" placeholder="" required />
                 <label for="age">อายุ</label>
             </span>
 
@@ -215,13 +218,13 @@ if (!$pfix) {
         <div class="zf-nameWrapper">
             <!-- Weight Input -->
             <span>
-                <input type="text" maxlength="3" name="weight" fieldType="7" placeholder="" required />
+                <input type="text" maxlength="3" id="weight" name="weight" fieldType="7" placeholder="" required />
                 <label for="weight">น้ำหนัก</label>
             </span>
 
             <!-- Height Input -->
             <span>
-                <input type="text" maxlength="3" name="height" fieldType="7" placeholder="" required />
+                <input type="text" maxlength="3" id="height" name="height" fieldType="7" placeholder="" required />
                 <label for="height">ส่วนสูง</label>
             </span>
         </div>
@@ -272,11 +275,7 @@ if (!$pfix) {
 
             <!-- Religion Select -->
             <span>
-                <select name="religion" id="religion" class="form-select" style="
-                    width: 100%;
-                    border: 1px solid #e5e5e5;
-                    padding-bottom: 2%;
-                " required> 
+                <select name="religion" id="religion" class="form-select" required> 
                     <option value="">-- เลือก --</option>
                     <?php
                     while ($row = sqlsrv_fetch_array($religion, SQLSRV_FETCH_ASSOC)) {
@@ -303,13 +302,13 @@ if (!$pfix) {
 
             <!-- ID Card Input -->
             <span>
-                <input type="text" name="idcard" maxlength="13" fieldType="7" placeholder="" required />
+                <input type="text" id="idcard" name="idcard" maxlength="13" fieldType="7" placeholder="" required />
                 <label for="idcard">บัตรประจำตัวประชาชน</label>
             </span> 
 
             <!-- Card Issue Date -->
             <span>
-                <input type="date"  id="startcard" name="startcard" fieldType="7" placeholder="" required />
+                <input type="date"  id="startcard"  name="startcard" fieldType="7" placeholder="" required />
                 <label for="startcard">วันที่ออกบัตร</label>
             </span> 
 
@@ -400,7 +399,7 @@ if (!$pfix) {
             
             <!-- Address Line -->
             <span class="zf-addOne">
-                <input type="text" maxlength="255" name="Address_AddressLine1" checktype="c1" placeholder="" />
+                <input type="text" maxlength="255" id="Address_AddressLine1" name="Address_AddressLine1" checktype="c1" placeholder="" />
                 <label for="Address_AddressLine1">ที่อยู่</label>
             </span>
 
@@ -435,7 +434,7 @@ if (!$pfix) {
 
             <!-- Zip Code -->
             <span class="zf-flLeft zf-addtwo"> 
-                <input type="text" maxlength="255" name="Address_ZipCode" checktype="c1" placeholder="" />
+                <input type="text" maxlength="255"  id="Address_ZipCode"name="Address_ZipCode" checktype="c1" placeholder="" />
                 <label for="Address_ZipCode">รหัสไปรษณีย์</label>
             </span>
 
@@ -450,24 +449,25 @@ if (!$pfix) {
 
 <!---------Phone Starts Here----------> 
 <li class="zf-tempFrmWrapper zf-address zf-addrlarge">
-    <div class="zf-tempContDiv zf-address">
-        <div class="zf-addrCont">
-            <!-- Phone Input -->
-            <span class="zf-flLeft zf-addtwo"> 
-                <input type="text" maxlength="255" name="Tel" checktype="c1" placeholder="" required />
-                <label for="Tel">เบอร์โทรศัพท์</label>
-            </span>
+  <div class="zf-tempContDiv zf-address">
+    <div class="zf-addrCont">
 
-            <!-- Email Input -->
-            <span class="zf-flLeft zf-addtwo"> 
-                <input type="text" maxlength="255" name="Email" checktype="c1" placeholder="" />
+      <!-- Phone Input -->
+        <span class="zf-flLeft zf-addtwo">
+                <input type="text" maxlength="255" id="Tel" name="Tel" checktype="c1" placeholder="" required />
+                <label for="Tel">เบอร์โทรศัพท์</label>
+        </span>
+
+      <!-- Email Input -->
+      <span class="zf-flLeft zf-addtwo">
+                <input type="text" maxlength="255" id="Email" name="Email" checktype="c1" placeholder="" />
                 <label for="Email">E-mail</label>
             </span>
-            <div class="zf-clearBoth"></div>
-        </div>
-        <p id="PhoneNumber_error" class="zf-errorMessage" style="display:none;">Invalid value</p>
+      <div class="zf-clearBoth"></div>
     </div>
-    <div class="zf-clearBoth"></div>
+    <p id="PhoneNumber_error" class="zf-errorMessage" style="display:none;">Invalid value</p>
+  </div>
+  <div class="zf-clearBoth"></div>
 </li>
 <!---------Phone Ends Here----------> 
 
@@ -521,19 +521,19 @@ if (!$pfix) {
         <div class="zf-nameWrapper">
             <!-- Total Number of Children -->
             <span>
-                <input type="text" maxlength="2" name="child_number" placeholder="" required />
+                <input type="text" maxlength="2" id="child_number" name="child_number" placeholder="" required />
                 <label for="child_number">จำนวนบุตร</label>
             </span> 
 
             <!-- Number of Boys -->
             <span>
-                <input type="text" maxlength="1" name="child_boy" placeholder="" required />
+                <input type="text" maxlength="1"  id="child_boy" name="child_boy" placeholder="" required />
                 <label for="child_boy">ชาย</label>
             </span> 
 
             <!-- Number of Girls -->
             <span>
-                <input type="text" maxlength="1" name="child_girl" placeholder="" required />
+                <input type="text" maxlength="1" id="child_girl" name="child_girl" placeholder="" required />
                 <label for="child_girl">หญิง</label>
             </span> 
 
@@ -811,12 +811,7 @@ if (!$pfix) {
             </span> 
 
             <span>
-                <select name="Educational_qualification" id="Educational_qualification" 
-                style="
-                    width: 100%;
-                    border: 1px solid #e5e5e5;
-                    padding-bottom: 2%;
-                "required>
+                <select name="Educational_qualification" id="Educational_qualification" class="form-select" required>
                     <option value="">-Select-</option>
                     <?php while ($row = sqlsrv_fetch_array($degree, SQLSRV_FETCH_ASSOC)) {
                         echo "<option value=\"" . htmlspecialchars($row['degree_name']) . "\">" . htmlspecialchars($row['degree_name']) . "</option>";
@@ -838,11 +833,7 @@ if (!$pfix) {
             </span> 
 
             <span>
-                <select name="first_startyear" id="startYearDropdown"  style="
-                    width: 100%;
-                    border: 1px solid #e5e5e5;
-                    padding-bottom: 2%;
-                "required>
+                <select name="first_startyear" id="startYearDropdown" required>
                     <option value="">-Select-</option>
                     <!-- Populate with years -->
                 </select>
@@ -850,11 +841,7 @@ if (!$pfix) {
             </span> 
 
             <span>
-                <select name="first_gruadeyear" id="gradeYearDropdown"  style="
-                    width: 100%;
-                    border: 1px solid #e5e5e5;
-                    padding-bottom: 2%;
-                "required>
+                <select name="first_gruadeyear" id="gradeYearDropdown" required>
                     <option value="">-Select-</option>
                     <!-- Populate with years -->
                 </select>
@@ -873,16 +860,12 @@ if (!$pfix) {
     <div class="zf-tempContDiv zf-threeType">
         <div class="zf-nameWrapper">
             <span>
-                <input type="text" id="vocationName" name="vocationName" placeholder="ชื่อสถาบัน"  /> 
+                <input type="text" id="vocationName" name="vocationName" placeholder="ชื่อสถาบัน" > 
                 <label for="vocationName">ชื่อสถาบัน</label>
             </span> 
 
             <span>
-                <select name="Educational_qualification2" id="Educational_qualification2"  style="
-                    width: 100%;
-                    border: 1px solid #e5e5e5;
-                    padding-bottom: 2%;
-                ">
+                <select name="Educational_qualification2" id="Educational_qualification2" >
                     <option value="">-Select-</option>
                     <?php
                     while ($row = sqlsrv_fetch_array($degree1, SQLSRV_FETCH_ASSOC)) {
@@ -894,11 +877,7 @@ if (!$pfix) {
             </span> 
 
             <span>
-                <input type="text" id="depart2" name="depart2" placeholder="สาขาวิชา" style="width: 100%;"  style="
-                    width: 100%;
-                    border: 1px solid #e5e5e5;
-                    padding-bottom: 2%;
-                "/> 
+                <input type="text" id="depart2" name="depart2" placeholder="สาขาวิชา" style="width: 100%;" > 
                 <label for="depart2">สาขาวิชา</label>
             </span> 
             <div class="zf-clearBoth"></div>
@@ -1754,7 +1733,7 @@ if (!$pfix) {
 </div><!-- 'zf-templateWrapper' ends -->
 </form>
 </div><!-- 'zf-templateWidth' ends -->
-
+<script src = "./assets/dist/js/bootstrap.bundle.min.js" > </script> 
 <script type="text/javascript">var zf_DateRegex = new RegExp("^(([0][1-9])|([1-2][0-9])|([3][0-1]))[-](Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)[-](?:(?:19|20)[0-9]{2})$");
 var zf_MandArray = [ "Name5_First", "Name5_Last", "Name5_Middle", "Dropdown1", "Name_Salutation", "Name_First", "Name_Last", "Name_Middle", "Date", "Name3_First", "Name3_Last", "Name3_Middle", "Address_AddressLine1", "Address_AddressLine2", "Address_City", "Address_Region", "Address_ZipCode", "Address1_AddressLine1", "Address1_AddressLine2", "Address1_City", "Address1_Region", "Address1_ZipCode", "PhoneNumber_countrycode", "Email", "Radio1", "Radio5", "writeEng", "writeother", "readEng", "readother", "speakEng", "speakother"]; 
 var zf_FieldArray = [ "Date4", "Name5_First", "Name5_Last", "Name5_Middle", "Dropdown1", "Name_Salutation", "Name_First", "Name_Last", "Name_Middle", "Date", "Name3_First", "Name3_Last", "Name3_Middle", "Name4_First", "Name4_Last", "Name4_Middle", "Name10_First", "Name10_Last", "Name10_Middle", "Date9", "Address_AddressLine1", "Address_AddressLine2", "Address_City", "Address_Region", "Address_ZipCode", "Address1_AddressLine1", "Address1_AddressLine2", "Address1_City", "Address1_Region", "Address1_ZipCode", "PhoneNumber_countrycode", "Email", "Radio", "Radio1", "Name11_First", "Name11_Last", "Name11_Middle", "Radio2", "Radio3", "Radio4", "Radio5", "MatrixChoice5_row1", "MatrixChoice5_row2", "MatrixChoice6_row1", "MatrixChoice6_row2", "MatrixChoice4_row1", "MatrixChoice4_row2", "Radio6", "Name1_First", "Name1_Last", "Name1_Middle", "Date1", "Date2", "Name2_First", "Name2_Last", "Name6_First", "Name6_Last", "Name6_Middle", "Date5", "Date6", "Name7_First", "Name7_Last", "Name8_First", "Name8_Last", "Name8_Middle", "Date7", "Date8", "Name9_First", "Name9_Last"]; 
