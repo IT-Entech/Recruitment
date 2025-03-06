@@ -15,7 +15,6 @@ $jsonData = json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
 if (file_put_contents($file, $jsonData)) {
     echo 'Data successfully saved to ' . $file;
-    include 'insertData1.php'; // Insert into the database
 } else {
     echo 'Error writing to file';
 }
@@ -507,7 +506,7 @@ if (!$stmt2) {
 
 if($objQuery){
 
-    //echo '<script>alert("บันทึกเรียบร้อย");window.location="https://erp-web.en-technology.com/Encrypt.php";</script>';
+    echo '<script>alert("บันทึกเรียบร้อย");window.location="https://erp-web.en-technology.com/Encrypt.php";</script>';
     }
 
 }
